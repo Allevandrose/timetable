@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Achievements Checklist</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+       .navbar-custom {
+            background-color: #007bff; /* Bootstrap primary color */
+        }
+      #achievement-list {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      #completion-message {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+      <a class="navbar-brand" href="index.html">My Website</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="achievement.html">Achievements</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Achievements Checklist</h1>
+    <div id="achievement-list">
+      <h2>Your Achievements</h2>
+      <label
+        ><input type="checkbox" class="achievement" /> Completed PHP and Laravel
+        training</label
+      >
+      <label
+        ><input type="checkbox" class="achievement" /> Completed Vue.js
+        training</label
+      >
+      <label
+        ><input type="checkbox" class="achievement" /> Completed React and
+        Node.js training</label
+      >
+      <label
+        ><input type="checkbox" class="achievement" /> Completed Android
+        development training</label
+      >
+      <label
+        ><input type="checkbox" class="achievement" /> Developed and deployed a
+        full-stack application</label
+      >
+      <label
+        ><input type="checkbox" class="achievement" /> Successfully built an
+        Android app</label
+      >
+      <label
+        ><input type="checkbox" class="achievement" /> Completed a project
+        revision</label
+      >
+      <label
+        ><input type="checkbox" class="achievement" /> Reviewed and practiced
+        coding challenges</label
+      >
+      <button id="check-progress">Check Progress</button>
+      <div id="completion-message"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("check-progress")
+        .addEventListener("click", function () {
+          const achievements = document.querySelectorAll(".achievement");
+          let completedCount = 0;
+
+          achievements.forEach(function (achievement) {
+            if (achievement.checked) {
+              completedCount++;
+            }
+          });
+
+          const totalAchievements = achievements.length;
+          const completionMessage =
+            document.getElementById("completion-message");
+          completionMessage.textContent = `You have completed ${completedCount} out of ${totalAchievements} achievements.`;
+        });
+    </script>
+    <!-- Optional Bootstrap JS and dependencies (for navbar toggling) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
